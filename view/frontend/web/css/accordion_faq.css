@@ -1,0 +1,16 @@
+.question {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 16px;
+    text-align: left;
+    border: groove;
+    height: auto !important;
+}
+.answer {
+    color: #444;
+    padding: 20px;
+    border: groove;
+    height: auto !important;
+}
+

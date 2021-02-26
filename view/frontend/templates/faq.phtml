@@ -1,0 +1,43 @@
+<?php
+use RockLab\FAQ\Block\Product\Faq;
+/** @var Faq $block */
+?>
+<h3 class="ggg">FAQ</h3>
+<div>
+<!--    <p><a href="https://www.google.com/">GOOGLE</a></p>-->
+    <div id="element" data-mage-init='{"accordion":{"openedState": "active", "collapsible": true, "active": false, "multipleCollapsible": true}}'>
+        <?php foreach($block->getFaq() as $value): ?>
+            <?php if ($value['divider'] == ""):?>
+                <h3 class=""><?php echo $value['question'];?></h3>
+            <?php continue; ?>
+            <?php endif;?>
+            <div data-role="collapsible">
+                <div class="question" data-role="trigger">
+                    <span><?php echo $value['question']; ?></span>
+                </div>
+            </div>
+            <div class="answer" data-role="content"><?php echo $value['answer']; ?></div>
+        <?php endforeach; ?>
+    </div>
+</div>
+<!--<script type="text/x-magento-init">-->
+<!--    {-->
+<!--        "*": {-->
+<!--            'Dimas_DynamicRows/js/component': {}-->
+<!--        }-->
+<!--    }-->
+<!--</script>-->
+<script>
+require([
+'jquery',
+'accordion'
+], function ($) {
+$("#element").accordion({
+active: [], //optional - option from accordion
+collapsible: true, //optional - option from accordion
+collapsibleElement: "[data-role=collapsible]", // - option from tabs
+content: "[data-role=content]", // - option from tabs
+trigger: "[data-role=trigger]" // - option from tabs
+});
+});
+</script>
